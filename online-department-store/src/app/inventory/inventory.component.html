@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="row">
+    <app-inventory-search (onClickSearch)="setSearchString($event)"></app-inventory-search>
+  </div>
+  <div class="row">
+    <app-inventory-list [filterCriteria]="searchString"></app-inventory-list>
+  </div>
+</div>
+

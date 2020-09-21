@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Customer order list</div>
+        <div class="panel-body">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-sm-1" for="orderId">Order Id:</label>
+                    <div class="col-sm-2">
+                        <input type="text" name="orderId" id="orderId" class="form-control" #orderId>
+                    </div>
+                    <label class="control-label col-sm-2" for="mobileNo">Mobile Number:</label>
+                    <div class="col-sm-2">
+                        <input type="text" name="mobileNo" id="mobileNo" class="form-control" #mobileNo>
+                    </div>
+
+                    <div class="col-sm-1">
+                        <button type="submit" class="btn btn-default" (click)="search()"><span class="glyphicon glyphicon-search"></span>&nbsp;Search</button>
+                    </div>
+                    
+                </div>   
+            </form>
+        </div>
+    </div>
+
+    <app-order-list [filteredOrderList]="orderList">
+    </app-order-list>
+</div>

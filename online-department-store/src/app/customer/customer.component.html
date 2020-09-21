@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="mobileNo">Mobile Number:</label>
+                <div class="col-sm-2">
+                    <input type="text" #mobileno name="mobileNo" id="mobileNo" class="form-control" #mobileNo>
+                </div>
+
+                <div class="col-sm-1">
+                    <button type="submit" class="btn btn-primary" (click)="createOrder(mobileno)">Create Order</button>
+                </div>
+                
+            </div>   
+        </form>
+    </div>
+    <div class="row">
+        <app-order-search></app-order-search>
+    </div>
+</div>
+
+

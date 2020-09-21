@@ -1,0 +1,92 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-2">Code</div>
+            <div class="col-md-3">Name</div>
+            <div class="col-md-3">Qty</div>
+            <div class="col-md-2">Unit Price</div>
+            <div class="col-md-2">Total</div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="row" *ngFor="let item of items">
+            <div class="col-md-2">{{item.inventoryCode}}</div>
+            <div class="col-md-3">{{item.inventoryName}}</div>
+            <div class="col-md-3">{{item.inventoryQty}}</div>
+            <div class="col-md-2">{{item.inventoryUnitPrice | currency : 'INR'}}</div>
+            <div class="col-md-2">{{item.inventoryQty * item.inventoryUnitPrice | currency : 'INR'}}</div>
+        </div>
+        <div class="row" *ngIf="isCreateOrder==='true'">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-md-2" style="margin-left: 2px;">
+                        <select class="form-control" id="inventoryCode"
+                                required
+                                [(ngModel)]="newItem.inventoryCode" name="inventoryCode" (change)="onChangeInventoryCode()">
+                            <option *ngFor="let inventoryListItem of inventoryList" [value]="inventoryListItem.inventoryCode">{{inventoryListItem.inventoryCode}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3" style="margin-left: 8px;">
+                            {{newItem.inventoryName}}
+                    </div>
+                    <div class="col-md-3" style="padding-left: 0px;">
+                        <div class="col-sm-5" style="padding-left: 0px;">
+                            <input type="text" #qty="ngModel" required name="qty" id="qty" 
+                            [(ngModel)]="newItem.inventoryQty" class="form-control"
+                            [disabled]="newItem.inventoryCode===''"
+                            (change)="onChangeUnitPrice()">
+                        </div>
+                        <div [hidden]="!qty.invalid"
+                            class="my-alert alert-danger col-md-12">
+                            Qty is required
+                        </div>
+                        <div [hidden]="!isQtyExceedsInventory"
+                            class="my-alert alert-danger col-md-12">
+                            Qty exceeds inventory
+                        </div>
+                    </div>
+                    <div class="col-md-2" style="padding-left: 0px; padding-right: 0px;">
+                        <strong>{{newItem.inventoryUnitPrice | currency : 'INR'}}</strong>
+                    </div>
+                    <div class="col-md-1" style="padding-left: 0px;">
+                        <strong>{{newItem.inventoryQty * newItem.inventoryUnitPrice | currency : 'INR'}}</strong>
+                    </div>
+                </div>
+            </form> 
+        </div>
+    </div>
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-md-offset-8 col-md-2">
+                <strong>Total:</strong>
+            </div>
+            <div class="col-md-2">
+                <strong>{{getTotal() | currency : 'INR'}}</strong>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" *ngIf="isCreateOrder==='true'">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <div class="row" style="padding: 10px;">
+                <div class="col-md-offset-10 col-md-2">
+                    <button class="btn btn-primary float-right" (click)="onAddNewItem()">Add   Item</button>
+                </div>
+            </div>
+            
+            <div class="row" style="padding: 10px;">
+                <div class="col-md-offset-8 col-md-2">
+                    <button class="btn btn-danger float-right" (click)="onCancel()">Cancel</button>   
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-info float-right" (click)="onCheckOut()">Checkout</button> 
+                </div>
+            </div>
+            
+            
+        </div>
+    </form>
+</div>
+

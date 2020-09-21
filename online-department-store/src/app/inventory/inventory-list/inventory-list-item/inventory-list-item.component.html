@@ -1,0 +1,9 @@
+<div class="row" [ngClass]="{'lowqty-alert': inventoryListItem.inventoryQty <= 10}">
+    <div class="col-md-2">{{inventoryListItem.inventoryCode}}</div>
+    <div class="col-md-4">{{inventoryListItem.inventoryName}}</div>
+    <div class="col-md-1">{{inventoryListItem.inventoryQty}}</div>
+    <div class="col-md-2">{{inventoryListItem.inventoryUnitPrice}}</div>
+    <div class="col-md-3"><a (click)="edit()">Edit</a></div>
+</div>
+<app-add-edit-inventory-popup #popup></app-add-edit-inventory-popup>
+

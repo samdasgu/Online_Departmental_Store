@@ -1,0 +1,14 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-2">Order Id</div>
+            <div class="col-md-3">Mobile Number</div>
+            <div class="col-md-3">Amount</div>
+            <div class="col-md-2">Date</div>
+            <div class="col-md-2">Action</div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <app-order-list-item *ngFor="let orderItem of filteredOrderList" [displayedOrderItem]="orderItem"></app-order-list-item>
+    </div>
+</div>

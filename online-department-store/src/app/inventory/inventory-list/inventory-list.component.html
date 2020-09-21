@@ -1,0 +1,18 @@
+<div class="row">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-md-2">Code</div>
+                    <div class="col-md-4">Name</div>
+                    <div class="col-md-1">Qty</div>
+                    <div class="col-md-2">Unit Price(Rs.)</div>
+                    <div class="col-md-3">Action</div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <app-inventory-list-item *ngFor="let inventoryListItem of inventoryList" [inventory] = "inventoryListItem">
+                </app-inventory-list-item>
+            </div>
+        </div>          
+    </div>
+

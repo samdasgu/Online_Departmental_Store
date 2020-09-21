@@ -1,0 +1,24 @@
+    <div class="row">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Inventory List</div>
+            <div class="panel-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-sm-1" for="name">Name:</label>
+                        <div class="col-sm-2">
+                            <input type="text" name="name" id="name" #nameSearchString class="form-control">
+                        </div> 
+                        <div class="col-sm-1">
+                            <button type="submit" class="btn btn-default" (click)="search(nameSearchString)"><span class="glyphicon glyphicon-search"></span>&nbsp;Search</button>
+                        </div>
+                        <div class="col-sm-2">
+                            <button type="button" class="btn btn-primary" (click)="addInventory()">
+                                Add Inventory
+                            </button>
+                        </div>
+                    </div>   
+                </form>
+            </div>
+        </div>               
+    </div>
+<app-add-edit-inventory-popup #popup></app-add-edit-inventory-popup>
