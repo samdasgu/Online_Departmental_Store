@@ -18,14 +18,7 @@ import { OrderListItemComponent } from './customer/order-search/order-list/order
 import { OrderSummaryComponent } from './customer/order-summary/order-summary.component';
 import { OrderDetailsComponent } from './customer/order-summary/order-details/order-details.component';
 import { OrderService } from './customer/order-search/order.service';
-
-
-const appRoutes : Routes = [
-  {path: '', component: InventoryComponent},
-  {path: 'inventory', component: InventoryComponent},
-  {path: 'customer', component: CustomerComponent},
-  {path: 'customer/:orderId/:isCreateOrder', component: OrderSummaryComponent},
-]
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -46,7 +39,7 @@ const appRoutes : Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   providers: [InventoryService, OrderService],
   bootstrap: [AppComponent]
