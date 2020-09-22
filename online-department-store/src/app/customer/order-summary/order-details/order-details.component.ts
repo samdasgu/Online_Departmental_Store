@@ -16,12 +16,12 @@ export class OrderDetailsComponent implements OnInit {
   @Input() orderId: string;
   @Input() isCreateOrder: string;
   inventoryList: Inventory[];
-  newItem: Inventory = new Inventory('','',0,0);
-  isQtyExceedsInventory: boolean = false;
+  newItem: Inventory = new Inventory('', '', 0, 0);
+  isQtyExceedsInventory = false;
 
-  constructor(private inventoryService: InventoryService, 
-    private orderService: OrderService,
-    private router: Router) { }
+  constructor(private inventoryService: InventoryService,
+              private orderService: OrderService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.inventoryList = this.inventoryService.getInventoryList();
