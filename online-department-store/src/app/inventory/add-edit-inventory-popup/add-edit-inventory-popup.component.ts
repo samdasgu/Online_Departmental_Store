@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 import { InventoryService } from '../inventory.service';
 import { Inventory } from '../shared/model/inventory.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-add-edit-inventory-popup',
@@ -13,6 +14,7 @@ export class AddEditInventoryPopupComponent implements OnInit {
   isAdd : boolean;
   errorMsg : string;
   @ViewChild('addEditInventory',{static: true}) modalWindow : ElementRef;
+  @ViewChild('invform', {static: true}) invform: NgForm;
   inventoryDTO : Inventory = new Inventory(null,null,null,null);
 
   
@@ -41,8 +43,9 @@ export class AddEditInventoryPopupComponent implements OnInit {
 
     this.invService.saveInventory(this.inventoryDTO);
 
-    this.inventoryDTO = new Inventory(null,null,null,null);
+    this.inventoryDTO = new Inventory(null, null, null, null);
     $(this.modalWindow.nativeElement).modal('hide');
+    this.invform.form.markAsPristine();
   }
 
   checkNullOrEmpty(inputString: any) { 
@@ -57,7 +60,7 @@ export class AddEditInventoryPopupComponent implements OnInit {
   }
 
   onDestroy() {
-    console.log("Destroy called");
+    console.log("AddEditInventoryPopupComponent::Destroy called");
   }
 
 }

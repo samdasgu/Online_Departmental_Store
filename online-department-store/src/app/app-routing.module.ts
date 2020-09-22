@@ -6,7 +6,7 @@ import { OrderSummaryComponent } from './customer/order-summary/order-summary.co
 
 
 const appRoutes: Routes = [
-  {path: '', component: InventoryComponent},
+  {path: '', redirectTo: 'inventory', pathMatch: 'full'},
   {path: 'inventory', component: InventoryComponent},
   {path: 'customer', component: CustomerComponent},
   {path: 'customer/:orderId/:isCreateOrder', component: OrderSummaryComponent},
