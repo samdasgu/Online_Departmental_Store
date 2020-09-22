@@ -1,10 +1,16 @@
 package org.samdasgu.inventoryservice.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class InventoryDTO {
 	
+	@JsonProperty("inventoryCode")
 	private String invCode;
+	@JsonProperty("inventoryName")
 	private String invName;
+	@JsonProperty("inventoryQty")
 	private int invQty;
+	@JsonProperty("inventoryUnitPrice")
 	private double unitPrice;
 	
 	public InventoryDTO() {
